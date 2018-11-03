@@ -1,4 +1,3 @@
-import sys
 import time
 import queue
 import threading
@@ -6,11 +5,9 @@ import asyncio
 import websockets
 import json
 
-sys.path.append('../')
-
-from pylsm9ds1.acc_gyro import ACC_GYRO
-from pylsm9ds1.mag import MAG
-from pylsm9ds1.smbus_driver import SMBusDriver
+from pylsm9ds1 import ACC_GYRO
+from pylsm9ds1 import MAG
+from pylsm9ds1 import SMBusDriver
 
 running = True
 
@@ -21,8 +18,8 @@ class AG_Thread (threading.Thread):
         self.imu = None
 
     def run (self): 
-        acc_driver = SMBusDriver(ACC_GYRO.ADDRESS)
-        mag_driver = SMBusDriver(MAG.ADDRESS)
+        acc_driver = SMBusDriver(ACC_GYRO.ADDRESS, 1)
+        mag_driver = SMBusDriver(MAG.ADDRESS, 1)
         while running is True:
             try:
                 self.imu = ACC_GYRO(acc_driver)

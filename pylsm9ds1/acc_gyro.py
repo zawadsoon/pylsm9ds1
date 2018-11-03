@@ -78,7 +78,7 @@ class ACC_GYRO:
 
     def enableAcc (self):
         self.driver.writeReg(self.CTRL_REG5_XL, 0x38)
-        self.driver.writeReg(self.CTRL_REG6_XL, 0x58)
+        self.driver.writeReg(self.CTRL_REG6_XL, 0x68)
         self.driver.writeReg(self.CTRL_REG7_XL, 0x00)
 
     def enableGyro (self):

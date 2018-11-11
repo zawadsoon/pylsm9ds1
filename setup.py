@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from disutils.core import setup
+from distutils.core import setup
 
 setup(
     name='pylsm9ds1',
